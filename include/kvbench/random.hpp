@@ -62,7 +62,7 @@ class RandomUniformUint64 : public Random {
   }
 
   void Next(void* ptr) {
-    *reinterpret_cast<uint64_t*>(ptr) = dist_(gen_);
+    *(uint64_t*)ptr = dist_(gen_);
   }
 
  private:

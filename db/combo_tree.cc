@@ -21,21 +21,21 @@ class ComboTree : public kvbench::DB {
     uint64_t val;
     db_->Get(reinterpret_cast<uint64_t>(key), val);
     *(uint64_t*)value = val;
-    return 0;
+    return true;
   }
 
   bool Put(void* key, void* value) {
     db_->Insert(reinterpret_cast<uint64_t>(key), reinterpret_cast<uint64_t>(value) & 0x3FFFFFFFFFFFFFFFUL);
-    return 0;
+    return true;
   }
 
   bool Update(void* key,  void* value) {
-    return 0;
+    return true;
   }
 
   bool Delete(void* key) {
     db_->Delete(reinterpret_cast<uint64_t>(key));
-    return 0;
+    return true;
   }
 
   size_t Scan(void* min_key, size_t max_size, std::vector<void*>* values) {
