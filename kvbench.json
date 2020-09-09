@@ -1,0 +1,48 @@
+{
+    "author": "张丘洋",
+    "title": "kvbench 测试",
+    "reportTemplate": "template.tex",
+    "reportOutput": "out.tex",
+    "generateReport": true,
+    "nrThread": 1,
+    "phases": [
+        {
+            "type": "load",
+            "size": 1000000,
+            "nrThread": 1,
+            "keyDataFile": "key.dat",
+            "valueDataFile": "value.dat"
+        },
+        {
+            "type": "get",
+            "size": 100000,
+            "nrThread": 2
+        },
+        {
+            "type": "scan",
+            "size": 100000,
+            "scanSize": 100,
+            "nrThread": 1
+        }
+    ],
+    "db": [
+        {
+            "name": "StdMap",
+            "keyType": "uint64_t",
+            "valueType": "uint64_t",
+            "preTask": "",
+            "env": [
+                "NAME=name",
+                "TEST=test"
+            ],
+            "task": "/home/qyzhang/Projects/kvbench-golang/db/std_map",
+            "afterTask": ""
+        },
+        {
+            "name": "LevelDB",
+            "keyType": "uint64_t",
+            "valueType": "uint64_t",
+            "task": "/home/qyzhang/Projects/kvbench-golang/db/std_map"
+        }
+    ]
+}
