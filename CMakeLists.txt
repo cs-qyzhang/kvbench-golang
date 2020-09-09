@@ -17,3 +17,8 @@ add_executable(combo_tree db/combo_tree.cc)
 target_link_directories(combo_tree PUBLIC /home/qyzhang/Projects/ComboTree/build)
 target_include_directories(combo_tree PUBLIC /home/qyzhang/Projects/ComboTree/include)
 target_link_libraries(combo_tree combotree pthread)
+
+# fast fair
+add_executable(fast_fair db/fast_fair.cc)
+target_include_directories(fast_fair PUBLIC /home/qyzhang/src/RECIPE)
+target_link_libraries(fast_fair pthread)
