@@ -2,6 +2,7 @@
 
 #include <fstream>
 #include <vector>
+#include <iostream>
 #include "random.hpp"
 
 namespace kvbench {
@@ -28,8 +29,10 @@ class DataReader {
       exit(0);
     }
     uint64_t next;
+    std::cout << "start reading data file: " << file_name << std::endl;
     while (data_.size() < max_size && (file >> next))
       data_.push_back(next);
+    std::cout << "finish reading data file: " << file_name << std::endl;
     return true;
   }
 
